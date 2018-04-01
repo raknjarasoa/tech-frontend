@@ -1,55 +1,26 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300);
+
 // SETTINGS
 @import 'settings/settings.colors.scss';
+
 // UTILITIES
 @import 'utilities/mixins';
+@import 'utilities/breakpoint';
 @import 'utilities/print';
+
 // BASE
-@import 'base/fonts';
+// @import 'base/fonts';
 @import 'base/generic';
+@import 'base/media';
 @import 'base/headings';
 @import 'base/typography';
-@import 'base/lists';
+
 // COMPONENTS
+@import 'components/survey-list';
+@import 'components/survey-item';
+
 // VENDORS
 // @import 'vendors/font-awesome';
-
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300);
-// #Variables
-$bg: radial-gradient( farthest-corner at 40px 40px, rgba(33, 150, 243, 0.68) 0%, rgba(233, 30, 99, 0.68) 100%);
-$white: #ecf0f1;
-$black: #000;
-$color-text: #7a89ab;
-$darkenColor: darken($white, 20%);
-$dark-color: #1d2028;
-$footer-height: 300px;
-// #Mixins
-@mixin transition-all() {
-	transition: all 0.25s ease-in-out;
-}
-
-$breakpoints: ( mobile: 20em, tablet: 34em, desktop: 60em);
-@mixin breakpoint($screen-size) {
-	@if map-has-key($breakpoints, $screen-size) {
-		@media (min-width: map-get($breakpoints, $screen-size)) {
-			@content;
-		}
-	}
-}
-
-// #Main
-html,
-body {
-	background-color: $dark-color;
-	color: $white;
-	font-family: "Roboto Condensed", sans-serif, cursive;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-
-	&.overflow--hidden {
-		overflow: hidden;
-	}
-}
 
 // #Footer
 footer {

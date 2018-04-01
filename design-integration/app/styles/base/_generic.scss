@@ -4,3 +4,17 @@ html {
 	min-height: 100%;
 	overflow-y: scroll;
 }
+
+html,
+body {
+	background-color: $dark-color;
+	color: $white;
+	font-family: "Roboto Condensed", sans-serif, cursive;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+
+	&.overflow--hidden {
+		overflow: hidden;
+	}
+}
