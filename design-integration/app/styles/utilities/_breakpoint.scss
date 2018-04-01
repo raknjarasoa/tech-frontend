@@ -28,11 +28,11 @@ $mid-pixel-ratio-min-res: 144dpi;
 $breakpoints: ( mobile: 20em, tablet: 34em, desktop: 60em);
 
 @mixin breakpoint_LEGACY($screen-size) {
-	@if map-has-key($breakpoints, $screen-size) {
-		@media (min-width: map-get($breakpoints, $screen-size)) {
-			@content;
-		}
-	}
+  @if map-has-key($breakpoints, $screen-size) {
+    @media (min-width: map-get($breakpoints, $screen-size)) {
+      @content;
+    }
+  }
 }
 
 @mixin breakpoint($mediaList) {

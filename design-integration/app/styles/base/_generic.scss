@@ -1,20 +1,21 @@
 html {
-	font-size: 100%;
-	line-height: 1;
-	min-height: 100%;
-	overflow-y: scroll;
+  font-size: 100%;
+  line-height: 1;
+  min-height: 100%;
+  overflow-y: scroll;
 }
 
 html,
 body {
-	background-color: $color-grey;
-	color: $color-white;
-	font-family: $default-font-family;
-	height: 100%;
-	margin: 0;
-	padding: 0;
+  background: url(../images/noise.png) repeat;
+  // background-color: $color-grey;
+  color: $color-white;
+  font-family: $default-font-family;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 
-	&.overflow--hidden {
-		overflow: hidden;
-	}
+  &.overflow--hidden {
+    overflow: hidden;
+  }
 }
