@@ -8,7 +8,6 @@ html {
 html,
 body {
   background: url(../images/noise.png) repeat;
-  // background-color: $color-grey;
   color: $color-white;
   font-family: $default-font-family;
   height: 100%;
@@ -18,4 +17,12 @@ body {
   &.overflow--hidden {
     overflow: hidden;
   }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  padding: 15px;
 }

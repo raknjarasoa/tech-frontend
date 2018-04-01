@@ -10,7 +10,10 @@ footer {
 }
 
 .footer__logo {
-  padding: 20px;
+  padding: 10px;
+  @include respond-to('desktop') {
+    padding: 20px;
+  }  
 }
 
 .copyright {
@@ -18,13 +21,12 @@ footer {
 
   a {
     color: $color-white;
-    text-decoration: none;
   }
 }
 
 .pulse {
   animation: heathing 1s ease infinite;
-  color: $color-heart-red;
+  color: $color-danger;
   display: inline-block;
 }
 
@@ -34,7 +36,7 @@ footer {
   backface-visibility: hidden;
   border: 3px solid white;
   display: inline-flex;
-  height: 50px;
+  height: 56px;
   justify-content: center;
   overflow: hidden;
   position: relative;

@@ -15,9 +15,11 @@
 @import 'base/typography';
 
 // COMPONENTS
+@import 'components/input-form';
 @import 'components/footer';
-// @import 'components/survey-list';
-// @import 'components/survey-item';
+@import 'components/survey-list';
+@import 'components/survey-item';
+@import 'components/search-input';
 
 // VENDORS
 // @import 'vendors/font-awesome';
