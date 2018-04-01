@@ -7,9 +7,9 @@ html {
 
 html,
 body {
-	background-color: $dark-color;
-	color: $white;
-	font-family: "Roboto Condensed", sans-serif, cursive;
+	background-color: $color-grey;
+	color: $color-white;
+	font-family: $default-font-family;
 	height: 100%;
 	margin: 0;
 	padding: 0;
