@@ -1,0 +1,8 @@
+{
+  "extends": "standard",
+  "rules": {
+    "semi": ["error", "always"],
+    "no-debugger": "warn",
+    "space-before-function-paren": ["off", "always"]
+  }
+}
