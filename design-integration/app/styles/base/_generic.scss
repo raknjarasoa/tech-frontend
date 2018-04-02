@@ -7,15 +7,20 @@ html {
 
 html,
 body {
-  background: url(../images/noise.png) repeat;
+  background: $color-secondary;
   color: $color-white;
   font-family: $default-font-family;
   height: 100%;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 100%;
   padding: 0;
 
   &.overflow--hidden {
     overflow: hidden;
+  }
+
+  @include respond-to('desktop') {
+    max-width: 800px;
   }
 }
 
@@ -25,4 +30,8 @@ body {
 
 main {
   padding: 15px;
+
+  @include respond-to('desktop') {
+    padding: 15px 0;
+  }
 }

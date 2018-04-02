@@ -1,0 +1,64 @@
+.result {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    @include z-depth();
+
+    @include respond-to('desktop') {
+      flex-direction: row;
+    }
+  }
+
+  &__chart {
+    background: $color-white;
+    flex: 1;
+
+    h3 {
+      text-align: center;
+    }
+  }
+
+  &__informations {
+    background: $color-primary;
+    flex: 1;
+    padding: 10px;
+    position: unset;
+
+    @include respond-to('desktop') {
+      padding: 0;
+      position: relative;
+    }
+  }
+
+  &__content {
+    background: $color-white;
+    bottom: 10px;
+    border-radius: .25rem;
+    box-shadow: 0 0.4rem 0.8rem -0.1rem rgba(0,32,128,.1), 0 0 0 1px $color-white;
+    left: 10px;
+    padding: 1rem 5%;
+    position: unset;
+    top: 10px;
+    right: 10px;
+
+    @include respond-to('desktop') {
+      position: absolute;
+    }
+  }
+
+  p {
+    color: $color-primary;
+    font-weight: 700;
+  }
+
+  h3 {
+    color: gray;
+    font-size: 0.9em;
+    text-transform: uppercase;
+  }
+
+  li,
+  strong {
+    color: $color-cool;
+  }
+}
