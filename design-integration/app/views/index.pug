@@ -7,21 +7,22 @@ block main
     hr
 
   section.search
-    label.search__wrapper(for='search__input')
-      input#search__input.search__input(type='text')
+    label.search__wrapper(for='search__input' aria-hidden='true')
+      span.hidden Search
+      input#search__input.search__input(type='text' aria-label="Search")
 
   ul.survey-list
     li.survey-item
       a.survey-item__wrapper(href='!#')
         .survey-item__indicator
-          input(type='checkbox')
+          input(type='checkbox' aria-label="indicator")
           label(aria-hidden='true') XXX
         .survey-item__text
           h2.survey-item__title YYYYYYYYYYYYY
     li.survey-item
       a.survey-item__wrapper(href='!#')
         .survey-item__indicator
-          input(type='checkbox')
+          input(type='checkbox' aria-label="indicator")
           label(aria-hidden='true') XXX
         .survey-item__text
           h2.survey-item__title YYYYYYYYYYYYY
@@ -35,7 +36,6 @@ block main
         #chart
       .result__informations
         .result__content
-          p Informations
           h3 What is the visit date?
           ul
             li Lorem ipsum dolor sit amet 
