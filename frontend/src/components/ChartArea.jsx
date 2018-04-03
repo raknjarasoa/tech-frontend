@@ -33,7 +33,6 @@ function formatChartData(inputs) {
 }
 
 const ChartArea = ({ qcm }) => {
-  debugger;
   const config = formatChartData(qcm.result);
 
   return (
