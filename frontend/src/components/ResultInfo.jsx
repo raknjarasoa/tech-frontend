@@ -1,17 +1,12 @@
 import React from 'react';
-import { shape, object } from 'prop-types';
+import { object } from 'prop-types';
 
 import VisitDateItem from './VisitDateItem';
 import { QuestionType } from '../constants'
 import './ResultInfo.css';
 
-const ResultInfo = ({ info }) => {
-  const {
-    numeric,
-    date
-  } = info;
-
-  const dateList = date.result.map((v, i) => 
+const ResultInfo = ({ numeric, date}) => {
+  const dateList = date && date.result && date.result.map((v, i) => 
     <VisitDateItem
       key={ i }
       date={ v }
@@ -21,7 +16,7 @@ const ResultInfo = ({ info }) => {
   return (
     <div className='result__informations'>
       <div className='result__content'>
-        <h3>{ date.label }</h3>
+        <h3>{ date && date.label }</h3>
         <ul>
           { dateList }
         </ul>
@@ -33,10 +28,13 @@ const ResultInfo = ({ info }) => {
 };
 
 ResultInfo.propTypes = {
-  info: shape({
-    [QuestionType.DATE]: object.isRequired, 
-    [QuestionType.NUMERIC]: object.isRequired
-  }).isRequired
+  [QuestionType.DATE]: object.isRequired,
+  [QuestionType.NUMERIC]: object.isRequired
+}
+
+ResultInfo.defaultProps = {
+  [QuestionType.DATE]: {},
+  [QuestionType.NUMERIC]: {}
 }
 
 export default ResultInfo;

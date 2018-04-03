@@ -8,24 +8,23 @@ import VisitDateItem from '../components/VisitDateItem';
 
 describe('#Result info feature', () => {
   let component;
-  const info = {
-    date: {
-      label: 'Test',
-      result: [
-        '2017-06-09T00:00:00.000Z',
-        '2017-06-09T00:00:00.000Z'
-      ]
-    },
-    numeric: {
-      label: 'Test',
-      result: 123456
-    }
+  const date = {
+    label: 'Test',
+    result: [
+      '2017-06-09T00:00:00.000Z',
+      '2017-06-09T00:00:00.000Z'
+    ]
+  };
+  const numeric = {
+    label: 'Test',
+    result: 123456
   };
 
   beforeEach(() => {
     component = mount(
       <ResultInfo
-        info={ info }
+        date={ date }
+        numeric={ numeric }
       />
     );
   });
@@ -37,6 +36,6 @@ describe('#Result info feature', () => {
   it('should have 2 VisitDateItem items', () => {
     const visitDateItems = component.find(VisitDateItem);
 
-    expect(visitDateItems.getElements().length).toEqual(info.date.result.length);
+    expect(visitDateItems.getElements().length).toEqual(date.result.length);
   });
 });
