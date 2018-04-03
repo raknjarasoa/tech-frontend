@@ -9,6 +9,7 @@ import SurveyItem from '../components/SurveyItem';
 
 describe('#SurveyList container', () => {
   let component;
+  const mockSurveyItemClick = jest.fn();
   const list = [
     {
       code: '007',
@@ -21,6 +22,8 @@ describe('#SurveyList container', () => {
       <MemoryRouter initialEntries={ [ '/' ] }>
         <SurveyList
           list={ list }
+          selection=''
+          onSurveyItemClick={ mockSurveyItemClick }
         />
       </MemoryRouter>
     );

@@ -14,8 +14,8 @@ import './App.css';
 class App extends Component {
   state = {
     surveyList: [],
-    selection: null,
-    searchCriteria: ''
+    searchCriteria: '',
+    selection: ''
   }
 
   componentDidMount() {
@@ -30,6 +30,14 @@ class App extends Component {
   onSearch = (val = '') => {
     this.setState(prevState => ({
       searchCriteria: val
+    }));
+  }
+
+  onSurveyItemClick = e => {
+    const { code } = e.currentTarget.dataset;
+
+    this.setState(prevState => ({
+      selection: code
     }));
   }
 
@@ -57,6 +65,7 @@ class App extends Component {
             <SurveyList
               list={ filtredList }
               selection={ this.state.selection }
+              onSurveyItemClick={ this.onSurveyItemClick }
             />
 
             <Switch>

@@ -17,7 +17,7 @@ const SurveyItem = ({ onSurveyItemClick, code='', name='', isSelected }) => {
           <input 
             type='checkbox'
             aria-label='indicator'
-            defaultChecked={ isSelected }
+            checked={ isSelected }
           />
           <label aria-hidden='true'>{ code }</label>
         </div>
