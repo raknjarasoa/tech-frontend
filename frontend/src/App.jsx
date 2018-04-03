@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
-import { retrieveList } from './api';
+import { retrieveList, getSurveyById } from './api';
 
 import SearchInput from './components/SearchInput';
 import Footer from './components/Footer';
@@ -14,6 +14,7 @@ import './App.css';
 class App extends Component {
   state = {
     surveyList: [],
+    surveyResult: {},
     searchCriteria: '',
     selection: ''
   }
@@ -39,6 +40,42 @@ class App extends Component {
     this.setState(prevState => ({
       selection: code
     }));
+    this.loadSurveyResult(code);
+  }
+
+  /** 
+   * 
+   * Why don't retrieve all data once and store on localStorage?
+   * Because, I think that these type of data should be dynamic.
+   * We always need to get the last version of the data
+  */
+  loadSurveyResult(code) {
+    getSurveyById(code)
+      .then((data) => {
+        return this.transformData(data)
+      })
+      .then((obj) => {
+        this.setState(prevState => ({
+          surveyResult: obj
+        }));
+      });
+  }
+
+  /**
+   * 
+   * @param {object} data 
+   * Structured the payload data
+   */
+  transformData(data) {
+    return data.reduce((acc, v) => {
+      const { label, type, result } = v;
+
+      acc[type] = {
+        label,
+        result
+      }
+      return acc;
+    }, {})
   }
 
   render() {
@@ -69,7 +106,17 @@ class App extends Component {
             />
 
             <Switch>
-              <Route exact path="/survey/:surveyId" component={ Result } />
+              <Route
+                exact path='/survey/:surveyId'
+                render={
+                  (props) => (
+                    <Result
+                      surveyResult={ this.state.surveyResult }
+                      { ...props }
+                    />
+                  )
+                }
+              />
             </Switch>
 
           </main>
