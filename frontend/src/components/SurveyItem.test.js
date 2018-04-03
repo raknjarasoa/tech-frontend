@@ -20,6 +20,7 @@ describe('#Survey item feature', () => {
         <SurveyItem
           code={ code }
           name={ name }
+          onSurveyItemClick={ mockFunction }
         />
       </MemoryRouter>
     )
@@ -29,6 +30,7 @@ describe('#Survey item feature', () => {
         <SurveyItem
           code={ code }
           name={ name }
+          onSurveyItemClick={ mockFunction }
         />
       </MemoryRouter>
     )

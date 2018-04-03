@@ -1,17 +1,24 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, func, bool } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import './SurveyItem.css';
 
-const SurveyItem = ({ code='', name='' }) => {
+const SurveyItem = ({ onSurveyItemClick, code='', name='', isSelected }) => {
   const to = `/survey/${code}`;
 
   return (
     <li className='survey-item'>
-      <Link to={ to } className='survey-item__wrapper'>
+      <Link to={ to } className='survey-item__wrapper'
+        data-code={ code }
+        onClick={ onSurveyItemClick }
+      >
         <div className='survey-item__indicator'>
-          <input type='checkbox' aria-label='indicator' />
+          <input 
+            type='checkbox'
+            aria-label='indicator'
+            defaultChecked={ isSelected }
+          />
           <label aria-hidden='true'>{ code }</label>
         </div>
         <div className='survey-item__text'>
@@ -24,7 +31,9 @@ const SurveyItem = ({ code='', name='' }) => {
 
 SurveyItem.propTypes = {
   code: string.isRequired,
-  name: string.isRequired
+  name: string.isRequired,
+  onSurveyItemClick: func.isRequired,
+  isSelected: bool
 }
 
 export default SurveyItem;
