@@ -6,6 +6,9 @@ import './index.css';
 
 import registerServiceWorker from './registerServiceWorker';
 
+/**
+ * Enable HMR
+ */
 if (module.hot) {
   module.hot.accept();
 }

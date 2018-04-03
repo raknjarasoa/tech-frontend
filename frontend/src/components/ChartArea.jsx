@@ -5,6 +5,11 @@ import { Doughnut } from 'react-chartjs-2';
 import { QuestionType } from '../constants'
 import './ChartArea.css';
 
+/**
+ * 
+ * @param {Object} inputs 
+ * Allow to format data to show with react-charts
+ */
 function formatChartData(inputs) {
   if (!inputs) return {};
 

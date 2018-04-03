@@ -1,5 +1,9 @@
 import fetch from 'isomorphic-fetch';
 
+/**
+ * 
+ * Service class API to handle data fetch
+*/
 class RequestService {
 
   async doRequest(url) {
