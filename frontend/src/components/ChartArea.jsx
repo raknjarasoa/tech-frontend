@@ -1,44 +1,57 @@
 import React from 'react';
-import { string, object } from 'prop-types';
+import { object } from 'prop-types';
 import { Doughnut } from 'react-chartjs-2';
 
+import { QuestionType } from '../constants'
 import './ChartArea.css';
 
-const datatest = {
-  labels: [
-    'Red',
-    'Green',
-    'Yellow'
-  ],
-  datasets: [{
-    data: [300, 50, 100],
-    backgroundColor: [
-      '#FF6384',
-      '#36A2EB',
-      '#FFCE56'
-    ],
-    hoverBackgroundColor: [
-      '#FF6384',
-      '#36A2EB',
-      '#FFCE56'
-    ]
-  }]
-};
+function formatChartData(inputs) {
+  if (!inputs) return {};
 
-const ChartArea = ({ data, title }) => {
+  return {
+    labels: Object.keys(inputs),
+    datasets: [{
+      data: Object.values(inputs),
+      backgroundColor: [
+        '#FF6384',
+        '#36A2EB',
+        '#FFCE56',
+        '#2ecc71',
+        '#9b59b6',
+        '#2c3e50'
+      ],
+      hoverBackgroundColor: [
+        '#FF6384',
+        '#36A2EB',
+        '#FFCE56',
+        '#2ecc71',
+        '#9b59b6',
+        '#2c3e50'
+      ]
+    }]
+  };
+}
+
+const ChartArea = ({ qcm }) => {
+  debugger;
+  const config = formatChartData(qcm.result);
+
   return (
     <div className='result__chart'>
-      <h3>{title}</h3>
+      <h3>{ qcm.label }</h3>
       <div id='chart'>
-        <Doughnut data={datatest} />
+        <Doughnut data={ config } />
       </div>
     </div>
   )
 };
 
 ChartArea.propTypes = {
-  data: object.isRequired,
-  title: string.isRequired
+  [QuestionType.QCM]: object.isRequired
+}
+
+ChartArea.defaultProps = {
+  [QuestionType.QCM]: {}
 }
 
 export default ChartArea;
