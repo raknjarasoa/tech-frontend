@@ -1,4 +1,6 @@
-# Bocasay frontend challenge ReactJS / Angular
+# rontend challenge ReactJS
+
+#Use NPM
 
 ## Setup
 
